@@ -1,5 +1,5 @@
 import { DataTypes } from 'sequelize';
-import db from '../database/connection.js';
+import { db } from '../database/connection.js';
 
 const Movie = db.sequelize.define('Movie', {
   id: {

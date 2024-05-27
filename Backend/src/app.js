@@ -1,23 +1,17 @@
 import express from "express";
 import dotenv from "dotenv";
-import axios from 'axios';
 import "./database/connection.js"
 import { initModels } from "./models/index.js";
-import router from "./router/indexRoute.js";
+import router from "./router/IndexRoute.js";
 
 const app = express()
 const port = 3000
 
+initModels();
 
 app.use("/", router);
 
 
-initModels()
-  .then(() => {
-    app.listen(port, () => {
-      console.log(`App listening on port ${port}`);
-    });
-  })
-  .catch((error) => {
-    console.error("Failed to initialize models:", error);
-  });
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});

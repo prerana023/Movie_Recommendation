@@ -51,7 +51,6 @@ export const fetchPopularMovies = async (page) => {
         genre_ids: movie.genre_ids,
       }));
 
-  
       return filteredMovies;
     } catch (error) {
       console.error('Error fetching or saving movies:', error);

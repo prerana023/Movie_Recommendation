@@ -15,13 +15,22 @@ const sequelizeConnection = new Sequelize({
     dialect: 'postgres',
 });
 
-sequelizeConnection.authenticate()
-    .then(() => console.log('Database connected'))
-    .catch(err => console.log('Error in databse: ' + err))
+export const db = {
+    sequelize: sequelizeConnection,
+    Sequelize: Sequelize,
+};
+
+export const initModels = async () => {
+    try {
+      await sequelizeConnection.authenticate();
+      console.log('Connection has been established successfully.');
+  
+      await sequelizeConnection.sync({ force: false }); 
+      console.log('Database synchronized.');
+    
+    } catch (error) {
+      console.error('Unable to connect to the database:', error);
+    }
+  };
 
 
-const db = {};
-db.Sequelize = Sequelize;
-db.sequelize = sequelizeConnection;
-
-export default db;
