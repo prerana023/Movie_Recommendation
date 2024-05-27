@@ -29,8 +29,10 @@ export const handleGetAllMovies = async (req, res) => {
   export const handleGetMovieById = async (req, res) => {
     try {
       const { id } = req.params;
-      const movie = await getMovieById(id);
-      res.status(200).json(movie);
+      const movies = await getMovieById(id);
+      const moviesData = movies.toJSON(); 
+      console.log("movie", moviesData)
+      res.status(200).json(moviesData);
     } catch (error) {
       console.error('Error fetching movie by ID:', error);
       res.status(500).json({ error: 'An error occurred while fetching the movie' });
