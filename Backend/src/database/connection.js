@@ -14,8 +14,14 @@ const sequelizeConnection = new Sequelize({
     password: process.env.DB_PASSWORD,
     dialect: 'postgres',
 });
+
 sequelizeConnection.authenticate()
     .then(() => console.log('Database connected'))
     .catch(err => console.log('Error in databse: ' + err))
 
-export default sequelizeConnection;
+
+const db = {};
+db.Sequelize = Sequelize;
+db.sequelize = sequelizeConnection;
+
+export default db;
