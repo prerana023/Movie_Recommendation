@@ -14,10 +14,23 @@ export const getTop20PopularMovies = async () => {
     try {
       const movies = await Movie.findAll({
         order: [['popularity', 'DESC']],
-        limit: 20
+        limit: 5
       });
       return movies;
     } catch (error) {
       throw error;
     }
   }
+
+  export const getMovieById = async (id) => {
+    try {
+      const movie = await Movie.findByPk(id);
+      if (!movie) {
+        throw new Error('Movie not found');
+      }
+      return movie;
+    } catch (error) {
+      console.error('Error fetching movie by ID:', error);
+      throw error;
+    }
+  };
