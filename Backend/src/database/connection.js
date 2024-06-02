@@ -27,9 +27,6 @@ export const initModels = async () => {
   
       await sequelizeConnection.sync({ force: false }); 
       console.log('Database synchronized.');
-
-      await sequelizeConnection.close();
-      console.log('Connection closed.');
     
     } catch (error) {
       console.error('Unable to connect to the database:', error);

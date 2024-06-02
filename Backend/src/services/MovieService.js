@@ -29,7 +29,6 @@ export const getTop20PopularMovies = async () => {
       }
       return movie;
     } catch (error) {
-      throw error
       console.error('Error fetching movie by ID:', error);
     }
   };

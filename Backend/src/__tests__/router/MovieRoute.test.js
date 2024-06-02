@@ -16,9 +16,11 @@ describe('Movie routes from local', () => {
         expect(Array.isArray(response.body.moviesData)).toBe(true);
       });
 
-    // test('GET /movies/:id should return a single movie by ID', async () => {
-    //     const response = await request(app).get('/movies/653346'); 
-    //     expect(response.status).toBe(200);
-    //     expect(response.body).toHaveProperty('id');
-    //   });
+    test('GET /movies/:id should return a movie by ID', async () => {
+        const movieId = 76341;
+        const response = await request(app).get(`/movies/${movieId}`);
+        console.log("Response body:", response.body);        
+        expect(response.status).toBe(200);
+        expect(response.body).toHaveProperty('id', movieId); 
+    });
 });
