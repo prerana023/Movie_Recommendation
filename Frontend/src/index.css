@@ -6,6 +6,6 @@ body{
   @apply bg-black text-white
 }
 
-.home-body{
+.home-body, .infromation-container{
   @apply mx-8;
 }

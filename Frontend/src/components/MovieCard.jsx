@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import starLogo from "../assets/star.svg";
+import posterImage from "../assets/Poster/godzilla.jpg"; 
 import ReactPaginate from 'react-paginate';
 
 const MoviesCard = ({ filtermovies }) => {
@@ -17,23 +18,21 @@ const MoviesCard = ({ filtermovies }) => {
   return (
     <div className="container mx-auto py-10">
       <h1 className="text-3xl font-bold mb-6">Discover All Movies</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {selectedMovies.map(movie => (
           <Link to={`/movies/${movie.id}`} key={movie.id}>
-            <div className="bg-zinc-900 shadow-md rounded-lg overflow-hidden">
-              <div className="relative pb-2/3">               
+            <div className="bg-zinc-900 shadow-md rounded-lg overflow-hidden h-96">
+              <div className="relative h-3/4"> 
                 <img 
-                  src={movie.poster_path} 
+                  src={posterImage} 
                   alt={movie.title} 
                   className="absolute h-full w-full object-cover"
                 />
               </div>
-              <div className="p-4">
-                <div className="flex items-center">
-                  <div className='mb-4 flex '>
-                    <img src={starLogo} className="w-6 h-6 mr-2 fill-current bg-yellow-500 text-yellow-500" alt="rating star" />
-                    <p className="text-sm text-gray-600">{movie.vote_average}</p>
-                  </div>
+              <div className="p-4 h-1/4 flex flex-col justify-between">
+                <div className="flex items-center mb-2">
+                  <img src={starLogo} className="w-6 h-6 mr-2 bg-yellow-500" alt="rating star" />
+                  <p className="text-sm text-gray-600">{movie.vote_average}</p>
                 </div>
                 <h2 className="text-lg font-semibold text-white">{movie.title}</h2>
               </div>

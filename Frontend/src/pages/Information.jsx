@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieWithId } from '../axios/axiosRequest';
+import Poster from "../assets/Poster/godzilla.jpg"
+
 
 const InformationPage = () => {
   const { movieId } = useParams();
@@ -27,10 +29,10 @@ const InformationPage = () => {
     return <div>Loading...</div>;
   }
   return (
-    <div className="container mx-auto py-10">
+    <div className="infromation-container mx-auto py-10">
       <div className="flex">
         <div className="w-1/2">
-          <img src={movie.poster_path} alt={movie.title} className="object-cover w-full" />
+          <img src={Poster} alt={movie.title} className="object-cover w-full" />
         </div>
         <div className="w-1/2 pl-5">
           <h1 className="text-3xl font-bold mb-3">{movie.title}</h1>
