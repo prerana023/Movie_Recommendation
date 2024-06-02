@@ -19,7 +19,9 @@ Welcome to my Movie Database App! This project utilizes Express.js for the backe
 
 1. Clone the repository:
 
-   git clone https://github.com/prerana023/Movie_Recommendation.git
+    ```bash
+    git clone https://github.com/prerana023/Movie_Recommendation.git
+    ```
 
 2.Navigate to the project directory:
 
@@ -53,7 +55,7 @@ Welcome to my Movie Database App! This project utilizes Express.js for the backe
 
 6.Access the application:
 
-    Once both the backend server and frontend development server are running, you can access the application by visiting http://localhost:5173 in your web browser.
+Once both the backend server and frontend development server are running, you can access the application by visiting http://localhost:5173 in your web browser.
 
 
 ## Accessing Swagger Documentation
@@ -61,9 +63,10 @@ Welcome to my Movie Database App! This project utilizes Express.js for the backe
 Swagger provides a user-friendly interface to interact with the API. To access the Swagger UI for the Movie Database App:
 
 1. Ensure that your backend server is running. You can start it using:
-
+    ```bash
     cd Backend/src
     nodemon app.js
+    ```
 
 2. Access the Swagger UI by visiting the following URL in your web browser:
 
