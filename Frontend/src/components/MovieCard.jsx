@@ -14,6 +14,9 @@ const MoviesCard = ({ filtermovies }) => {
     setCurrentPage(selected);
   };
 
+  const imageBaseURL = 'https://image.tmdb.org/t/p/w500';
+
+
   return (
     <div className="container mx-auto py-10">
       <h1 className="text-3xl font-bold mb-6">Discover All Movies</h1>
@@ -23,9 +26,9 @@ const MoviesCard = ({ filtermovies }) => {
             <div className="bg-zinc-900 shadow-md rounded-lg overflow-hidden">
               <div className="relative pb-2/3">               
                 <img 
-                  src={movie.poster_path} 
+                  src={`${imageBaseURL}${movie.poster_path}`}  
                   alt={movie.title} 
-                  className="absolute h-full w-full object-cover"
+                  className="w-full object-cover"
                 />
               </div>
               <div className="p-4">
@@ -62,3 +65,5 @@ const MoviesCard = ({ filtermovies }) => {
 };
 
 export default MoviesCard;
+
+

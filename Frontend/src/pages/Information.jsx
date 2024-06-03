@@ -5,15 +5,15 @@ import { getMovieWithId } from '../axios/axiosRequest';
 const InformationPage = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
-
-  console.log("movieid", movieId)
+  const imageBaseURL = 'https://image.tmdb.org/t/p/w500'; 
 
   useEffect(() => {
     const fetchMovie = async () => {
       try {
         const response = await getMovieWithId(movieId);
         const releaseDate = new Date(response.data.release_date).toLocaleDateString();
-        const updatedMovie = { ...response.data, release_date: releaseDate };
+        const posterURL = `${imageBaseURL}${response.data.poster_path}`; 
+        const updatedMovie = { ...response.data, release_date: releaseDate, poster_path: posterURL };
         setMovie(updatedMovie);
       } catch (error) {
         console.error('Error fetching movie:', error);

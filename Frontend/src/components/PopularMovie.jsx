@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { getPopularMovies } from '../axios/axiosRequest';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import starLogo from "../assets/star.svg";
 
 const PopularMoviesCarousel = () => {
   const [popularMovies, setPopularMovies] = useState([]);
+  const imageBaseURL = 'https://image.tmdb.org/t/p/w500'; 
 
   useEffect(() => {
     const fetchPopularMovies = async () => {
@@ -16,8 +16,9 @@ const PopularMoviesCarousel = () => {
           title: movie.title,
           overview: movie.overview,
           vote_average: movie.vote_average,
-          poster_path: movie.poster_path, 
+          poster_path: `${imageBaseURL}${movie.poster_path}`, 
         }));
+        console.log("Popular path", )
         const circularMovies = [...mappedMovies, mappedMovies[0], mappedMovies[mappedMovies.length - 1]];
         setPopularMovies(mappedMovies);
       } catch (error) {
@@ -48,15 +49,11 @@ const PopularMoviesCarousel = () => {
       >
         {popularMovies.map(movie => (
           <div key={movie.id} className="bg-zinc-800 shadow-md rounded-lg overflow-hidden mx-2">
-            <div className="relative pb-2/3">
-              <img src={movie.poster_path} alt={movie.title} className="absolute h-full w-full object-cover" />
+            <div className="relative">
+              <img src={movie.poster_path} alt={movie.title} className="w-full object-cover" />
             </div>
             <div className="p-4 bg-gradient-to-t from-black to-transparent">
               <h2 className="text-lg font-semibold text-white mb-2">{movie.title}</h2>
-              {/* <div className="flex items-center">
-                <img src={starLogo} className=" mr-2 fill-current text-yellow-500 bg-yellow-500" alt="rating star" />
-                <p className="text-sm text-gray-300">{movie.vote_average}</p>
-              </div> */}
             </div>
           </div>
         ))}

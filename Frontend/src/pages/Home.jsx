@@ -29,8 +29,6 @@ function HomePage() {
     setSearchQuery(e.target.value);
   };
 
-    console.log('Search Query:', searchQuery);
-  console.log('Filtered Movies:', filteredMovies);
 
   return (
     <div className="home-body">
