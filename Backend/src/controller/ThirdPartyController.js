@@ -24,6 +24,7 @@ export const handleFetchAllMovies = async (req, res) => {
   }
 };
 
+
 const saveMoviesToDatabase = async (movies) => {
   try {
     await Movie.bulkCreate(movies, {
@@ -35,6 +36,7 @@ const saveMoviesToDatabase = async (movies) => {
     throw error;
   }
 };
+
 
 export const handleFetchPopularMovies =  async (req, res, next)=>{
     try {
@@ -50,5 +52,4 @@ export const handleFetchPopularMovies =  async (req, res, next)=>{
         return next(err);
       }
   };
-  
 

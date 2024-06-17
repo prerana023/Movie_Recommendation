@@ -10,6 +10,7 @@ export const getAllMovies = async () =>{
     }
 }
 
+
 export const getTop20PopularMovies = async () => {
     try {
       const movies = await Movie.findAll({
@@ -18,7 +19,7 @@ export const getTop20PopularMovies = async () => {
       });
       return movies;
     } catch (error) {
-      throw error;
+      console.log(error);
     }
   }
 
@@ -31,6 +32,6 @@ export const getTop20PopularMovies = async () => {
       return movie;
     } catch (error) {
       console.error('Error fetching movie by ID:', error);
-      throw error;
     }
   };
+

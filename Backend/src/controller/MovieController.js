@@ -3,8 +3,8 @@ import { getAllMovies, getTop20PopularMovies, getMovieById } from "../services/M
 export const handleGetAllMovies = async (req, res) => {
     try {
       const movies = await getAllMovies();
+      console.log(movies)
       const moviesData = movies.map(movie => movie.toJSON());
-      console.log("Movies:", moviesData)
       res.status(200).json(moviesData);
     } catch (error) {
       console.error('Error fetching movies:', error);

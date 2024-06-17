@@ -6,3 +6,5 @@ const initModels = async () => {
 };
 
 export { initModels, Movie };
+
+
